@@ -24,11 +24,14 @@ Public Class Form1
     Private FrameIndex As Integer   '当前帧数
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        Const VibrateCycle = 1     'sec
+        Const VibrateCycle = 2     'sec
         Dim VibrateAmplitude = Me.ClientSize.Width / 2
         Button1.Left = CInt(VibrateAmplitude *
             (1 + Math.Sin(2 * Math.PI * FrameIndex / (VibrateCycle * FPS))) -
             Button1.Width / 2)
+        Button1.Top = CInt(VibrateAmplitude *
+            (1 - Math.Cos(2 * Math.PI * FrameIndex / (VibrateCycle * FPS))) -
+            Button1.Height / 2)
         FrameIndex += 1
         Me.Text = String.Format("Frames: {0}", FrameIndex)
     End Sub
