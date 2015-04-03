@@ -25,11 +25,12 @@ Public Class Form1
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         Const VibrateCycle = 2     'sec
-        Dim VibrateAmplitude = Me.ClientSize.Width / 2
-        Button1.Left = CInt(VibrateAmplitude *
+        Dim VibrateAmplitudeX = Me.ClientSize.Width / 2
+        Dim VibrateAmplitudeY = Me.ClientSize.Height / 2
+        Button1.Left = CInt(VibrateAmplitudeX *
             (1 + Math.Sin(2 * Math.PI * FrameIndex / (VibrateCycle * FPS))) -
             Button1.Width / 2)
-        Button1.Top = CInt(VibrateAmplitude *
+        Button1.Top = CInt(VibrateAmplitudeY *
             (1 - Math.Cos(2 * Math.PI * FrameIndex / (VibrateCycle * FPS))) -
             Button1.Height / 2)
         FrameIndex += 1
